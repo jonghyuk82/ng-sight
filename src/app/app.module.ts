@@ -12,6 +12,10 @@ import { SectionSalesComponent } from './sections/section-sales/section-sales.co
 import { SectionOrdersComponent } from './sections/section-orders/section-orders.component';
 import { SectionHealthComponent } from './sections/section-health/section-health.component';
 import { importType } from '@angular/compiler/src/output/output_ast';
+import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
+import { LineChartComponent } from './charts/line-chart/line-chart.component';
+import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -20,12 +24,17 @@ import { importType } from '@angular/compiler/src/output/output_ast';
     SidebarComponent,
     SectionSalesComponent,
     SectionOrdersComponent,
-    SectionHealthComponent
+    SectionHealthComponent,
+    BarChartComponent,
+    LineChartComponent,
+    PieChartComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,    
     RouterModule.forRoot(appRoutes),
+    ChartsModule,
     AppRoutingModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
