@@ -12,6 +12,7 @@ export class ServerComponent implements OnInit {
 
   color!: string;
   buttonText!: string;
+  buttonStyle!: string;
 
   @Input() serverInput!: Server;
 
@@ -28,12 +29,14 @@ export class ServerComponent implements OnInit {
       this.serverInput.isOnline = true;
       this.color = '#66BB6A';
       this.buttonText = 'Shut Down';
+      this.buttonStyle = 'btn btn-dark mb-2 action';
     }
     else
     {
       this.serverInput.isOnline = false;
       this.color = '#FF6B6B';
       this.buttonText = 'Start';
+      this.buttonStyle = 'btn btn-primary mb-2 action';
     }
   }
 

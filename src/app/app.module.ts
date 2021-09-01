@@ -17,6 +17,7 @@ import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 import { ChartsModule } from 'ng2-charts';
 import { ServerComponent } from './server/server.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ServerComponent } from './server/server.component';
     BarChartComponent,
     LineChartComponent,
     PieChartComponent,
-    ServerComponent
+    ServerComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,    
