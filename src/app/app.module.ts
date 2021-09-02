@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { appRoutes } from 'src/routes';
+import { HttpClientModule } from '@angular/common/http';
+
+// Services
+import { SalesDataService } from './services/sales-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,10 +41,13 @@ import { PaginationComponent } from './pagination/pagination.component';
     BrowserModule,    
     RouterModule.forRoot(appRoutes),
     ChartsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
     
   ],
-  providers: [],
+  providers: [
+    SalesDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
