@@ -52,13 +52,7 @@ export class SectionOrdersComponent implements OnInit {
 
   ngOnInit(): void
   {
-    this.getOrders();
-    //this._salesData.getOrders(this.page, this.limit);
-    // {
-    //   this.orders = res['page']['data'];
-    //   console.log(res);
-      
-    // });
+    this.getOrders();    
   }
 
   getOrders(): void
@@ -69,12 +63,22 @@ export class SectionOrdersComponent implements OnInit {
         console.log('Result from getOrders: ', res);
         this.orders = res['page']['data'];
         this.total = res['page']['total'];
-        this.loading = false;
-
-        console.log(res['page']['data']);
-        console.log(this.total);
-        console.log(this.loading);
+        this.loading = false;        
       });
+  }
+
+  goToPrevious(): void
+  {
+    //console.log('Previous button clicked');
+    this.page--;
+    this.getOrders();
+  }
+
+  goToNext(): void
+  {
+    //console.log('Next button clicked');
+    this.page++;
+    this.getOrders();
   }
 
 }
