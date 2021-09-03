@@ -6,6 +6,6 @@ export interface Order
     customer: Customer;
     total: number;
     placed: Date;
-    fulfilled: Date;
+    completed: Date;
 
 }
