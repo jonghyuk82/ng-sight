@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/shared/order';
 import { SalesDataService } from 'src/app/services/sales-data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-section-orders',
@@ -46,14 +47,34 @@ export class SectionOrdersComponent implements OnInit {
   total = 0;
   page = 1;
   limit = 10;
+  loading = false;
   
 
   ngOnInit(): void
   {
-    this._salesData.getOrders(this.page, this.limit).subscribe(res =>
-    {
-      console.log(res);
-    })
+    this.getOrders();
+    //this._salesData.getOrders(this.page, this.limit);
+    // {
+    //   this.orders = res['page']['data'];
+    //   console.log(res);
+      
+    // });
+  }
+
+  getOrders(): void
+  {
+    this._salesData.getOrders(this.page, this.limit)
+      .subscribe((res) =>
+      {
+        console.log('Result from getOrders: ', res);
+        this.orders = res['page']['data'];
+        this.total = res['page']['total'];
+        this.loading = false;
+
+        console.log(res['page']['data']);
+        console.log(this.total);
+        console.log(this.loading);
+      });
   }
 
 }
