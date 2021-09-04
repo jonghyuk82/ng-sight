@@ -24,6 +24,7 @@
   </table>
 
   <app-pagination
+    (goPage)="goToPage($event)"
     (goPrev)="goToPrevious()"
     (goNext)="goToNext()"
     [page]="page"
