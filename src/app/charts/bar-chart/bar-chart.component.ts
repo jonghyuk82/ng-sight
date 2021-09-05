@@ -58,12 +58,14 @@ export class BarChartComponent implements OnInit {
       moment(new Date(o.placed)).format('YY-MM-DD')
     );
 
+    //console.log('label:', labels)
+
     const formattedOrders = this.orders.reduce((r: any, e: any) => {
       r.push([moment(e.placed).format('YY-MM-DD'), e.total]);
       return r;
     }, []);
 
-    console.log('formattedOrders: ', formattedOrders);
+    //console.log('formattedOrders: ', formattedOrders);
 
     const p: any = [];
 

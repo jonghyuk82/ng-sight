@@ -24,4 +24,32 @@ export class SalesDataService {
         })
       );
   }
+
+  getOrderByCustomer(n: number)
+  {
+    return this._http
+      .get<Order[]>(this.baseUrl + 'bycustomer/' + n)
+      .pipe(
+        map((data: Order[]) => {
+          return data;
+        }),
+        catchError((error) => {
+          return throwError('Something went wrong');
+        })
+      );
+  }
+
+  getOrderByState()
+  {
+    return this._http
+      .get<Order[]>(this.baseUrl + 'bystate/')
+      .pipe(
+        map((data: Order[]) => {
+          return data;
+        }),
+        catchError((error) => {
+          return throwError('Something went wrong');
+        })
+      );
+  }
 }
