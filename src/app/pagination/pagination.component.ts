@@ -16,6 +16,8 @@ export class PaginationComponent implements OnInit {
   @Output() goPrev = new EventEmitter<boolean>();
   @Output() goNext = new EventEmitter<boolean>();
   @Output() goPage = new EventEmitter<number>();
+  @Output() goFirst = new EventEmitter<boolean>();
+  @Output() goLast = new EventEmitter<boolean>();
 
   constructor() {}
 
@@ -31,6 +33,16 @@ export class PaginationComponent implements OnInit {
 
   onPage(n: number): void {
     this.goPage.emit(n);
+  }
+
+  onFirst(): void
+  {
+    this.goFirst.emit(true);
+  }
+
+  onLast(): void
+  {
+    this.goLast.emit(true);
   }
 
   totalPages(): number {

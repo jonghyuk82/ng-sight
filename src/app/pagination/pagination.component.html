@@ -5,7 +5,15 @@
   <span class="page-counts">{{ totalPages() }} total pages</span>
   <div class="pagination" *ngIf="count > 0"></div>
   <button
-    class="btn btn-small btn-info"
+    class="btn btn-small btn-primary btn-pageNumber btn-special"
+    (click)="onFirst()"
+    [disabled]="page === 1 || loading"
+    [ngClass]="{ disabled: page === 1 || loading }"
+  >
+    Go to First
+  </button>
+  <button
+    class="btn btn-small btn-info btn-special"
     (click)="onPrev()"
     [disabled]="page === 1 || loading"
     [ngClass]="{ disabled: page === 1 || loading }"
@@ -21,11 +29,19 @@
     {{ pageNum }}
   </button>
   <button
-    class="btn btn-small btn-info"
+    class="btn btn-small btn-info btn-special"
     (click)="onNext()"
     [disabled]="isLastPage() || loading"
     [ngClass]="{ disabled: isLastPage() || loading }"
   >
     Next Page
+  </button>
+  <button
+    class="btn btn-small btn-primary btn-pageNumber btn-special"
+    (click)="onLast()"
+    [disabled]="isLastPage() || loading"
+    [ngClass]="{ disabled: isLastPage() || loading }"
+  >
+    Go To Last
   </button>
 </div>

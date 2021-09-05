@@ -76,4 +76,16 @@ export class SectionOrdersComponent implements OnInit {
     this.page = n;
     this.getOrders();
   }
+
+  goToFirst(): void
+  {
+    this.page = 1;
+    this.getOrders();
+  }
+
+  goToLast(): void
+  {
+    console.log('total:',this.total);
+    this.page = Math.ceil(this.total / this.limit);    
+  }
 }
