@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import * as lodash from 'lodash';
 import { THEME_COLORS } from 'src/app/shared/theme.colors';
 
-const theme = 'Default';
+const theme = 'Bright';
 
 @Component({
   selector: 'app-pie-chart',
@@ -54,16 +54,12 @@ export class PieChartComponent implements OnInit {
 
   pieChartType: ChartType = 'doughnut';
 
-
-  ngOnInit()
-  {
+  ngOnInit() {
     this.parseChartData(this.inputData, this.limit);
   }
 
-  parseChartData(res: any, limit?: number)
-  {    
+  parseChartData(res: any, limit?: number) {
     const allData = res.slice(0, limit);
-    console.log(allData)
 
     // this cannot be used because there are two different object name x['name'] and x['state']
     // to resolve the issue, using lodash
@@ -72,17 +68,14 @@ export class PieChartComponent implements OnInit {
     // this.pieChartLabels = allData.map((x: any) => x['name']);
 
     this.pieChartData = allData.map((x: any) => lodash.values(x)[1]);
-    this.pieChartLabels = allData.map((x: any) => lodash.values(x)[0]);  
-    
+    this.pieChartLabels = allData.map((x: any) => lodash.values(x)[0]);
   }
 
-  themeColors(setName: string): string[]
-  {
-    const c:string[] = THEME_COLORS.slice(0)
-      .find(set => set.name === setName)?.colorSet;
+  themeColors(setName: string): string[] {
+    const c: string[] = THEME_COLORS.slice(0).find(
+      (set) => set.name === setName
+    ).colorSet;
+
     return c;
   }
-
-
-  
 }
